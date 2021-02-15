@@ -11,9 +11,9 @@
 <h3>Design Decisions</h3>
 <h5>Why ConcurrentHashMap is used instead of ReadwriteLock</h5>
 
-  - Concurrent HashMap is used over ReadWriteLock as it performs better read though at the cost of accuracy. There is a possibility especially if the read and write is happening on the same instrumnt that we may miss the value from latest write value. This is because when read is not blocked when write is happeing on same segment 
+  - Concurrent HashMap is used over ReadWriteLock as it performs better read though at the cost of accuracy. There is a possibility especially if the read and write is happening on the same instrumnt that we may miss the value from latest write value. This is because the read is not blocked when write is happeing on same segment 
   
-  - If this is an issue - then we should switch to Readwrite lock. It will have performance implications as we will be blocking all read threads when the write is happening 
+  - If we want to get absolute latest data - then we should switch to Readwrite lock. It will have performance implications as the read threads will be clocked when the write is happening 
 
 <h5>For ConcurrentHashMap Why none of the parameters was initialised</h5>
   
