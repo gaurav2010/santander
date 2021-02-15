@@ -11,17 +11,15 @@
 <h3>Design Decisions</h3>
 <h5>Why ConcurrentHashMap is used instead of ReadwriteLock</h5>
 
-  - Concurrent HashMap over ReadWriteLock as from problem we are only publishing the last available spot price
+  - Concurrent HashMap is used over ReadWriteLock as from problem we are only publishing the last available spot price
 
-  - There is a possibility especially if the read and write is happening on the same combo where we may get a stale price
+  - There is a possibility especially if the read and write is happening on the same instrumnt then we may not see the latest write value. This is because when read is not blocked when write is happeing on same segment 
   
-  - If however is a need to an accurate latest data - we can switch to readwrite Lock 
-  
-  - The Readwrite lock will have performance implications as we will be blocking all read threads when the write is happening 
+  - If the above statement has issue - then we should switch to Readwrite lock. It will have performance implications as we will be blocking all read threads when the write is happening 
 
 <h5>For ConcurrentHashMap Why none of the parameters was initialised</h5>
   
-  - This is dependent upon the load and hence best left in default mode
+  - This is dependent upon the load and hence best left in default mode for now. After we understand the complete set of data, we should adjust the values 
   
 
 <h3>The Solution can be tested as below</h3> 
