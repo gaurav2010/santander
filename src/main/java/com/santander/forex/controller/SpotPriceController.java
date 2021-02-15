@@ -26,6 +26,7 @@ public class SpotPriceController {
     public ResponseEntity<SpotPrice> getSpotPrice(@RequestParam String instrumentName){
         LOG.info("Controller - Get Spot Price for instrumentName {}", instrumentName);
         SpotPrice spotPrice = spotPriceService.getPrice(instrumentName);
+        LOG.info("Spot Price for instrument{} is {}", instrumentName, spotPrice.toString());
         return ResponseEntity.status(OK).body(spotPrice);
     }
 }

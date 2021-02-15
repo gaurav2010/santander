@@ -81,4 +81,15 @@ public class SpotPrice {
     public int hashCode() {
         return Objects.hash(id, instrumentName);
     }
+
+    @Override
+    public String toString() {
+        return "SpotPrice{" +
+                "id=" + id +
+                ", instrumentName='" + instrumentName + '\'' +
+                ", bid=" + bid +
+                ", ask=" + ask +
+                ", timestamp=" + timestamp +
+                '}';
+    }
 }
