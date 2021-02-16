@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @ControllerAdvice
@@ -12,7 +13,7 @@ public class SpotPriceErrorAdvice {
 
     @ExceptionHandler({RuntimeException.class})
     public ResponseEntity<String> handle(RuntimeException re){
-        return ResponseEntity.status(NOT_FOUND).body(re.getMessage());
+        return ResponseEntity.status(INTERNAL_SERVER_ERROR).body(re.getMessage());
     }
 
     @ExceptionHandler({InstrumentNotFoundException.class})
