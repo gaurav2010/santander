@@ -28,5 +28,10 @@
   
   - Run Integration Endpoint test using Test class SpotPriceEndpointIntegrationTest - This test also inputs some spot-prices that is used in test
   
+<h3>Persistence Layer</h3>
+
+  - No Persistence Layer is planned in this phase
+  
+  - Eventually when Persitence Layer is added, we should record all spot-price changes received and also record all the Get Spot-price along with the response  
   
 
